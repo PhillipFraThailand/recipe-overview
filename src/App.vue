@@ -1,15 +1,25 @@
 <template>
-  <GridPage />
+  <RecipePage />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import GridPage from './components/GridPage.vue';
+import RecipePage from './components/RecipePage.vue';
+import { fetchFavoriteRecipes } from './services/recipe-service/recipeService';
 
 export default defineComponent({
   name: 'App',
   components: {
-    GridPage,
+    RecipePage,
+  },
+  created() {
+    this.fetchData();
+  },
+  methods: {
+    async fetchData() {
+      const data = await fetchFavoriteRecipes();
+      console.log(data);
+    },
   },
 });
 </script>

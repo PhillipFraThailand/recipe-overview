@@ -38,13 +38,13 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import RecipeCard from './RecipeCard.vue';
 
 export default {
   data() {
     return {
-      orderBy: 'asc', // Default value
+      orderBy: 'asc',
     };
   },
   components: {
@@ -52,6 +52,7 @@ export default {
   },
 };
 </script>
+
 <style>
 .container {
   background-color: white;
