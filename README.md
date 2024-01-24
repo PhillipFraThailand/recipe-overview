@@ -1,5 +1,6 @@
 # Recipe Overview
 Recipe Overview is a Vue.js application that displays recipes fetched from an API.
+The recipes can be ordered by different criteria such as name and rating.
 
 ## Get Started
 
@@ -59,3 +60,14 @@ Components that are specific to one page, can be grouped in a folder together wi
 │   │   │       ├── Component1.vue
 │   │   │       └── Component2.vue
 ```
+
+## Linting Formatting and TypeScript
+The project uses ESLint and Prettier for linting and formatting.
+The project uses TypeScript for type checking.
+
+To run the linter, run the following command
+```
+yarn lint
+```
+
+To configure the linter, refer to the .eslintrc.js file.
