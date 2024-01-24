@@ -2,7 +2,7 @@ import { RecipesStore } from '@/types/recipeTypes';
 import {
   ref, watch,
 } from 'vue';
-import { fetchFavoriteRecipes } from '../services/recipe-service/recipeService';
+import { fetchFavoriteRecipes } from '../services/recipes-service/recipesService';
 import { sortRecipes } from './utils';
 
 // Custom store object. Used to store recipes and related data.
@@ -16,10 +16,6 @@ const store: RecipesStore = {
 
   setOrderBy: (orderBy) => {
     store.state.value.orderBy = orderBy;
-  },
-
-  getStateValue(): typeof store.state.value {
-    return store.state.value;
   },
 
   // Fetches recipes from the API and saves to the store state.

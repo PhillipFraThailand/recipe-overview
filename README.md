@@ -45,7 +45,7 @@ For example, the RecipeStore folder contains the files related to the RecipeStor
 │   │   └── utils.ts
 │   ├── services
 │   │   └── recipe-service
-│   │       ├── recipeService.ts
+│   │       ├── recipesService.ts
 │   │       └── utils.ts
 
 ```
