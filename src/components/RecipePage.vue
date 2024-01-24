@@ -13,16 +13,17 @@
       </select>
     </label>
 
-    <div v-if="!recipesStore.state.value.isLoading" class="auto-grid-container">
+    <div v-if="recipesStore && !recipesStore.isLoading" class="auto-grid-container">
       <!-- :key is required for vue in its diffing algo -->
-      <RecipeCard v-for="(recipe, index) in  recipesStore.state.value.recipes" :key="`${recipe.name}-${index}`"
-        :recipe="recipe" class="grid-item" />
+      <RecipeCard v-for="(recipe, index) in  recipesStore.recipes" :key="`${recipe.name}-${index}`" :recipe="recipe"
+        class="grid-item" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue';
+import { defineComponent, onMounted, ref } from 'vue';
+import { RecipeStoreState } from '@/types/recipeTypes';
 import RecipeCard from './RecipeCard.vue';
 import { useRecipeStore } from '../recipes-store/composables';
 
@@ -32,10 +33,11 @@ export default defineComponent({
   },
   setup() {
     // Inject recipesStore in the component and return it for use
-    const recipesStore = useRecipeStore(); // Note: empty until fetchAndSave has been called
+    // const recipesStore = useRecipeStore(); // Note: empty until fetchAndSave has been called
+    const recipesStore = ref<RecipeStoreState | null>(null);
 
     onMounted(async () => {
-      await recipesStore.fetchAndSaveRecipes(); // Populate recipesStore recipes state.
+      // await recipesStore.fetchAndSaveRecipes(); // Populate recipesStore recipes state.
       console.log('recipesStore', recipesStore);
     });
 

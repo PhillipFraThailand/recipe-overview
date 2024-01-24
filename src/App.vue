@@ -4,6 +4,8 @@
   <!-- todo setup alias when i feel like i found a structure-->
   <!-- todo: use computed to transform list of recipes on order by change -->
   <!-- todo save orderby setting in localStorage then get it onMount if its there or use default -->
+
+  <!-- todo: when to fetch recipes? in composable on inject, in main.js before mount or in component? -->
 </template>
 
 <script lang="ts">

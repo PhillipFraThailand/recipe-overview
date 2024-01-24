@@ -34,6 +34,7 @@ export interface RecipeStoreState {
 
 // The recipes store object.
 export interface RecipesStore {
+  getStateValue: () => RecipeStoreState; // Getter function for state value to avoid writing .state.value everywhere.
   state: Ref<RecipeStoreState>;
   fetchAndSaveRecipes: () => Promise<void>
 }

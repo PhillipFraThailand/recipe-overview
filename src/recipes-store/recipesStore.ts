@@ -4,6 +4,12 @@ import { fetchFavoriteRecipes } from '../services/recipe-service/recipeService';
 
 // Custom store object. Used to store recipes and related data.
 const store: RecipesStore = {
+
+  // Getter function for state value
+  getStateValue() {
+    return this.state.value;
+  },
+
   state: ref({
     recipes: [],
     isLoading: false,
