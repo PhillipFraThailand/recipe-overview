@@ -14,6 +14,6 @@ To load data, the store exposes a `fetchAndSaveRecipes()` method imported from t
 As of now, the pages using the store will call the `fetchAndSaveRecipes()`. This is to not prematurely load the data, if it's not needed.
 
 #### Sorting data
-To sort the data, the store exposes a value `orderBy` that is set to how the data should be sorted. To change this the store exposes a `setOrderBy()` method that takes a string as a parameter.
+To sort the data, the store exposes a value `orderBy` that is set to how the data should be sorted. To change this the store exposes a `setOrderBy()` method that takes a string as a parameter. When the string is changed in the stores state, the store has a watcher, that will call a `sortRecipes()` method that will sort the recipes array based on the new `orderBy` value.
 
 This allows the application to be fully aligned on how the user prefers to see the data.
