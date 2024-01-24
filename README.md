@@ -1,25 +1,61 @@
-# recipe-overview
+# Recipe Overview
+Recipe Overview is a Vue.js application that displays recipes fetched from an API.
 
-## Project setup
+## Get Started
+
+### Prerequisites
+The project uses `yarn` as the package manager.
+To get started you need these dependencies in your environment:
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://yarnpkg.com/)
+- [Vue CLI](https://cli.vuejs.org/)
+
+### Installation
+To install the project dependencies, run the following command in the root directory of the project. It will install the dependencies listed in the package.json file.
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Serve the application
+To serve the application you will need to run the following command in the root directory of the project. It will serve the application on localhost:8080.
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
+Now open the browser and navigate to localhost:8080.
+
+## Project Structure
+The project settings and config files are in the root.
+
+The source code is in the src folder.
+
+Folder names follow the kebab-case convention.
+Pages and Components follow the PascalCase convention.
+Services and other files follow the camelCase convention.
+
+The folder structure aims to groups files used together in the same folder.
+For example, the RecipeStore folder contains the files related to the RecipeStore, such as the store itself, the composables and the utils, as such:
+
 ```
-yarn build
+├── src
+│   ├── recipes-store
+│   │   ├── composables.ts
+│   │   ├── recipesStore.ts
+│   │   └── utils.ts
+│   ├── services
+│   │   └── recipe-service
+│   │       ├── recipeService.ts
+│   │       └── utils.ts
+
 ```
 
-### Lints and fixes files
+Components that are specific to one page, can be grouped in a folder together with the page inside of the Components folder. For example,
 ```
-yarn lint
+├── src
+│   ├── components
+│   │   ├── a-specific-page
+│   │   │   ├── SpecificPage.vue
+│   │   │   └── components
+│   │   │       ├── Component1.vue
+│   │   │       └── Component2.vue
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-# recipe-overview
