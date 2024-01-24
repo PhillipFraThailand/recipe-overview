@@ -5,7 +5,10 @@ import { fetchFavoriteRecipes } from '../services/recipe-service/recipeService';
 // Custom store object. Used to store recipes and related data.
 const store: RecipesStore = {
 
-  // Getter function for state value
+  setOrderBy(orderBy) {
+    this.state.value.orderBy = orderBy;
+  },
+
   getStateValue() {
     return this.state.value;
   },

@@ -25,11 +25,13 @@ export type Recipe = Pick<RawRecipe, 'name' | 'rating' | 'image' | 'difficulty'>
   & { totalTimeToMake: number };
 
 // The recipes stores' state.
+
+type OrderBy = 'asc' | 'desc' | 'rating' // How to order the recipes. Save preference as it's used in multiple pages.
 export interface RecipeStoreState {
   recipes: Recipe[]; // List of recipes.
   isLoading: boolean; // Set to true while loading and false when done.
   error: null | Error; // Error object if an error occurred during load. Used to display err msg or retry.
-  orderBy: 'asc' | 'desc' | 'rating'; // How to order the recipes. Save preference as it's used in multiple pages.
+  orderBy: OrderBy;
 }
 
 // The recipes store object.
@@ -37,4 +39,5 @@ export interface RecipesStore {
   getStateValue: () => RecipeStoreState; // Getter function for state value to avoid writing .state.value everywhere.
   state: Ref<RecipeStoreState>;
   fetchAndSaveRecipes: () => Promise<void>
+  setOrderBy: (orderBy: OrderBy) => void;
 }
