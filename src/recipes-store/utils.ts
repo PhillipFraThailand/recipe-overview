@@ -1,7 +1,7 @@
 import { Recipe, OrderBy, Difficulty } from '@/types/recipeTypes';
 
 // In order to sort recipes by difficulty, we need to map the difficulty to a number.
-// This way we can compare just
+// This way we can compare just the numbers.
 const difficultyMap: Record<Difficulty, number> = {
   easy: 1,
   medium: 2,

@@ -1,11 +1,11 @@
 <template>
   <div class="recipe-card">
     <h2 class="card-title">{{ recipe.name }}</h2>
-    <img :src="recipe.image" alt="Recipe image" class="mock-image">
-    <p>{{ recipe.name }}</p>
-    <p>{{ recipe.rating }}</p>
-    <p>{{ recipe.totalTimeToMake }}</p>
-    <p>{{ recipe.difficulty }}</p>
+    <img :src="recipe.image" :alt="`Recipe image of dish ${recipe.name}`" class="recipe-image">
+    <p>Name: {{ recipe.name }}</p>
+    <p>Rating: {{ recipe.rating }}</p>
+    <p>Time To Make: {{ recipe.totalTimeToMake }} minutes</p>
+    <p>Difficulty Level: {{ recipe.difficulty }}</p>
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default defineComponent({
   border: 1px solid #ccc;
 }
 
-.mock-image {
+.recipe-image {
   width: 270px;
   min-height: 150px;
   border: 2px solid grey;

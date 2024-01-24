@@ -18,7 +18,7 @@ const store: RecipesStore = {
     store.state.value.orderBy = orderBy;
   },
 
-  getStateValue() {
+  getStateValue(): typeof store.state.value {
     return store.state.value;
   },
 
@@ -36,7 +36,7 @@ const store: RecipesStore = {
         this.state.value.error = new Error('Unknown error');
       }
     } finally {
-      this.state.value.isLoading = false;
+      this.state.value.isLoading = false; // Reset the loading state
     }
   },
 };
