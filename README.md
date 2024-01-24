@@ -71,3 +71,6 @@ yarn lint
 ```
 
 To configure the linter, refer to the .eslintrc.js file.
+
+## Responsiveness
+The application is responsive and uses a combination of auto-grid, that can be read about [here](https://archive.hankchizljaw.com/wrote/create-a-responsive-grid-layout-with-no-media-queries-using-css-grid/), and media queries to adapt to different screen sizes.
