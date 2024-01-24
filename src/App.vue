@@ -35,7 +35,6 @@ export default defineComponent({
 @media (max-width: 2107px) {
   #app {
     padding: 0 18rem;
-    background-color: red;
   }
 }
 
@@ -48,7 +47,6 @@ export default defineComponent({
 @media (max-width: 1440px) {
   #app {
     padding: 0 15rem;
-    background-color: blue;
   }
 }
 
