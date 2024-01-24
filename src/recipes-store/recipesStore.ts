@@ -1,17 +1,19 @@
 import { RecipesStore } from '@/types/recipeTypes';
-import { ref } from 'vue';
+import {
+  ref, watch,
+} from 'vue';
 import { fetchFavoriteRecipes } from '../services/recipe-service/recipeService';
+import { sortRecipes } from './utils';
 
 // Custom store object. Used to store recipes and related data.
 const store: RecipesStore = {
   state: ref({
     recipes: [],
     isLoading: false,
-    error: null,
-    orderBy: 'desc',
+    error: null, // To test this set to: new Error('Test error') and remove the reset in the fetchAndSaveRecipes by commenting out the error = null.
+    orderBy: 'asc',
   }),
 
-  // This function refers directly to store. That's possible due to the store object being defined before setOrderBy.
   setOrderBy: (orderBy) => {
     store.state.value.orderBy = orderBy;
   },
@@ -20,13 +22,13 @@ const store: RecipesStore = {
     return store.state.value;
   },
 
-  // Fetches recipes from the API and save to the store.
+  // Fetches recipes from the API and saves to the store state.
   async fetchAndSaveRecipes() {
     this.state.value.isLoading = true;
     try {
       const recipes = await fetchFavoriteRecipes();
       this.state.value.error = null; // Reset error state on success when retrying.
-      this.state.value = { ...this.state.value, recipes };
+      this.state.value.recipes = recipes;
     } catch (error) {
       if (error instanceof Error) {
         this.state.value.error = error;
@@ -38,5 +40,9 @@ const store: RecipesStore = {
     }
   },
 };
+
+watch(() => store.state.value.orderBy, (newOrderBy) => {
+  sortRecipes(store.state.value.recipes, newOrderBy);
+});
 
 export default store;

@@ -1,5 +1,7 @@
 import { Ref } from 'vue';
 
+export type Difficulty = 'easy' | 'medium' | 'hard';
+
 // Raw type received from the recipe API.
 export type RawRecipe = {
   id: number;
@@ -9,7 +11,7 @@ export type RawRecipe = {
   prepTimeMinutes: number;
   cookTimeMinutes: number;
   servings: number;
-  difficulty: string;
+  difficulty: Difficulty;
   cuisine: string;
   caloriesPerServing: number;
   tags: string[];
@@ -24,9 +26,9 @@ export type RawRecipe = {
 export type Recipe = Pick<RawRecipe, 'name' | 'rating' | 'image' | 'difficulty'>
   & { totalTimeToMake: number };
 
-// The recipes stores' state.
+export type OrderBy = 'asc' | 'desc' | 'rating' | 'difficulty' // How to order the recipes. Save preference as it's used in multiple pages.
 
-type OrderBy = 'asc' | 'desc' | 'rating' // How to order the recipes. Save preference as it's used in multiple pages.
+// The recipes stores' state.
 export interface RecipeStoreState {
   recipes: Recipe[]; // List of recipes.
   isLoading: boolean; // Set to true while loading and false when done.
