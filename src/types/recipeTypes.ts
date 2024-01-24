@@ -1,3 +1,5 @@
+import { Ref } from 'vue';
+
 // Raw type received from the recipe API.
 export type RawRecipe = {
   id: number;
@@ -21,3 +23,17 @@ export type RawRecipe = {
 // The type used in our app. prepTimeMinutes and cookTimeMinutes are combined into totalTimeToMake.
 export type Recipe = Pick<RawRecipe, 'name' | 'rating' | 'image' | 'difficulty'>
   & { totalTimeToMake: number };
+
+// The recipes stores' state.
+export interface RecipeStoreState {
+  recipes: Recipe[]; // List of recipes.
+  isLoading: boolean; // Set to true while loading and false when done.
+  error: null | Error; // Error object if an error occurred during load. Used to display err msg or retry.
+  orderBy: 'asc' | 'desc' | 'rating'; // How to order the recipes. Save preference as it's used in multiple pages.
+}
+
+// The recipes store object.
+export interface RecipesStore {
+  state: Ref<RecipeStoreState>;
+  fetchAndSaveRecipes: () => Promise<void>
+}

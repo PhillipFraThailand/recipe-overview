@@ -1,16 +1,27 @@
 <template>
   <div class="recipe-card">
-    <h2 class="card-title">Card title</h2>
-    <div class="mock-image">Mock image</div>
-    <p>Recipe Name</p>
-    <p>Rating</p>
-    <p>Time to make</p>
-    <p>Difficulty</p>
+    <h2 class="card-title">{{ recipe.name }}</h2>
+    <img :src="recipe.image" alt="Recipe image" class="mock-image">
+    <p>{{ recipe.name }}</p>
+    <p>{{ recipe.rating }}</p>
+    <p>{{ recipe.totalTimeToMake }}</p>
+    <p>{{ recipe.difficulty }}</p>
   </div>
 </template>
 
 <script lang="ts">
-export default {};
+import { defineComponent, PropType } from 'vue';
+import { Recipe } from '../types/recipeTypes';
+
+export default defineComponent({
+  name: 'RecipeCard',
+  props: {
+    recipe: {
+      type: Object as PropType<Recipe>,
+      required: true,
+    },
+  },
+});
 </script>
 
 <style scoped>

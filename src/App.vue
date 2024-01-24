@@ -1,25 +1,19 @@
 <template>
   <RecipePage />
+  <!-- todo: check how to use semantic html in vue -->
+  <!-- todo setup alias when i feel like i found a structure-->
+  <!-- todo: use computed to transform list of recipes on order by change -->
+  <!-- todo save orderby setting in localStorage then get it onMount if its there or use default -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import RecipePage from './components/RecipePage.vue';
-import { fetchFavoriteRecipes } from './services/recipe-service/recipeService';
 
 export default defineComponent({
   name: 'App',
   components: {
     RecipePage,
-  },
-  created() {
-    this.fetchData();
-  },
-  methods: {
-    async fetchData() {
-      const data = await fetchFavoriteRecipes();
-      console.log(data);
-    },
   },
 });
 </script>
